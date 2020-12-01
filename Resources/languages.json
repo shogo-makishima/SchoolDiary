@@ -1,0 +1,22 @@
+{
+  "Login": {
+    "ru": "Войти",
+    "en": "Login"
+  },
+  "Input_URL": {
+    "ru": "Введите url дневника... (Например: https://edu.admoblkaluga.ru:444)",
+    "en": "Login"
+  },
+  "Update_URL": {
+    "ru": "Обновить",
+    "en": "Update"
+  },
+  "Input_Login": {
+    "ru": "Логин",
+    "en": "Login"
+  },
+  "Input_Password": {
+    "ru": "Пароль",
+    "en": "Password"
+  }
+}
