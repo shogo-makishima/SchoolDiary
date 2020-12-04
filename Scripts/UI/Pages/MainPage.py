@@ -24,8 +24,10 @@ class MainPage(QMenu):
 
     @thread
     def ToLoginMenu(self, parent):
-        print(Settings.DATA_LOGIN)
+        if (NetSchoolShell.isLoginProcess): return
+
         if (Settings.DATA_LOGIN == None): parent.ChangeMenu("LoginPage")
         else:
             NetSchoolShell.Login(NetSchoolShell, Settings.DATA_LOGIN)
-            parent.ChangeMenu("DiaryPage")
+            if (NetSchoolShell.isLoginProcess): return
+            if (NetSchoolShell.GetIsLogin(NetSchoolShell)): parent.ChangeMenu("DiaryPage")

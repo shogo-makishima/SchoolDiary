@@ -18,5 +18,13 @@
   "Input_Password": {
     "ru": "Пароль",
     "en": "Password"
+  },
+  "Day_Previous": {
+    "ru": "<",
+    "en": "<"
+  },
+  "Day_Next": {
+    "ru": ">",
+    "en": ">"
   }
 }

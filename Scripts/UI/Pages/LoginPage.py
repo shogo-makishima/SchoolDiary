@@ -58,6 +58,8 @@ class LoginPage(QMenu):
 
     @thread
     def LoginPress(self, parent):
+        if (NetSchoolShell.isLoginProcess): return
+
         if (Settings.DATA_LOGIN == None):
             url = self.url_input.text()
             city = self.s_citiesDropdown.currentText()
@@ -71,6 +73,6 @@ class LoginPage(QMenu):
             Settings.DATA_LOGIN = DataLogin(url, login, password, state, func, city, province, school)
 
         NetSchoolShell.Login(NetSchoolShell, Settings.DATA_LOGIN)
-        Save()
-
-        parent.ChangeMenu("DiaryPage")
+        if (NetSchoolShell.GetIsLogin(NetSchoolShell)):
+            Save()
+            parent.ChangeMenu("DiaryPage")

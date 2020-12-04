@@ -52,3 +52,31 @@ def GenerateDropDownStyleSheet(name: str = "Back", fontSize: int = 15, fontFamil
             border-color: rgb(240, 240, 240);
         }}
     """
+
+
+def GenerateDiaryDayStyleSheet(name: str = "Back", fontSize: int = 15, fontFamily: str = "Trench"):
+    return f"""
+            #{name} {{
+                font-size: {fontSize}pt;
+                font-family: {fontFamily};
+
+                background-color: rgb(25, 25, 25);
+
+                border: 4px outset black;
+                border-radius: 10 10 10 10;
+                border-color: rgb(240, 240, 240);
+
+                color: rgb(240, 240, 240);
+            }}
+    """
+
+
+def GenerateLabelStyleSheet(name: str = "Back", fontSize: int = 15, fontFamily: str = "Trench"):
+    return f"""
+            #{name} {{
+                font-size: {fontSize}pt;
+                font-family: {fontFamily};
+                background-color: rgb(25, 25, 25);
+                color: rgb(240, 240, 240);
+            }}
+    """
