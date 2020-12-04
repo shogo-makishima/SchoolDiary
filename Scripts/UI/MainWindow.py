@@ -78,3 +78,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
         for menu in self.ListMenus:
             if (menu.name == "Default"): return menu
+
+    def closeEvent(self, a0: QtGui.QCloseEvent) -> None:
+        print("[API] Logout")
+        if (NetSchoolShell.GetIsLogin(NetSchoolShell)):
+            NetSchoolShell.Logout(NetSchoolShell)

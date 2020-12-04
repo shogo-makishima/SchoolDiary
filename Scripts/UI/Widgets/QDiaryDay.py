@@ -34,6 +34,10 @@ class QDiaryLesson(QtWidgets.QFrame):
         self.lesson_name.setText(t_stringLesson)
         self.assignmentName.setText(t_stringAssignment)
 
+    def Clear(self):
+        self.lesson_name.setText("")
+        self.assignmentName.setText("")
+
 
 class QDiaryDay(QtWidgets.QFrame):
     def __init__(self, parent, name: str, x: int, y: int, w: int, h: int, fontSize: int = 15):
@@ -48,13 +52,13 @@ class QDiaryDay(QtWidgets.QFrame):
         self.day_time.setObjectName("day_time")
         self.day_time.setStyleSheet(StyleSheets.GenerateDiaryDayStyleSheet("day_time", fontSize))
 
-        self.lesson_1 = QDiaryLesson(self, "lesson_1", 10, 50, w-40, 50)
-        self.lesson_2 = QDiaryLesson(self, "lesson_2", 10, 100, w-40, 50)
-        self.lesson_3 = QDiaryLesson(self, "lesson_3", 10, 150, w-40, 50)
-        self.lesson_4 = QDiaryLesson(self, "lesson_4", 10, 200, w-40, 50)
-        self.lesson_5 = QDiaryLesson(self, "lesson_5", 10, 250, w-40, 50)
-        self.lesson_6 = QDiaryLesson(self, "lesson_6", 10, 300, w-40, 50)
-        self.lesson_7 = QDiaryLesson(self, "lesson_7", 10, 350, w-40, 50)
+        self.lesson_1 = QDiaryLesson(self, "lesson_1", 20, 50, w-40, 50)
+        self.lesson_2 = QDiaryLesson(self, "lesson_2", 20, 100, w-40, 50)
+        self.lesson_3 = QDiaryLesson(self, "lesson_3", 20, 150, w-40, 50)
+        self.lesson_4 = QDiaryLesson(self, "lesson_4", 20, 200, w-40, 50)
+        self.lesson_5 = QDiaryLesson(self, "lesson_5", 20, 250, w-40, 50)
+        self.lesson_6 = QDiaryLesson(self, "lesson_6", 20, 300, w-40, 50)
+        self.lesson_7 = QDiaryLesson(self, "lesson_7", 20, 350, w-40, 50)
 
         self.lessons: list = [
             self.lesson_1,
@@ -70,7 +74,11 @@ class QDiaryDay(QtWidgets.QFrame):
 
     def UpdateDay(self, day: Day):
         self.day_time.setText(day.date)
+        for i in self.lessons:
+            i.setVisible(False)
+
         for i in range(len(day.lessons)):
             self.lessons[i].UpdateLesson(day.lessons[i])
+            self.lessons[i].setVisible(True)
 
 
